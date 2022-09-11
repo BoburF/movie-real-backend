@@ -1,38 +1,20 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "./index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/movies",
-      "headers": {
-        "methods": [
-          "GET"
-        ],
-        "Location": "https://admirable-caramel-1c2dbd.netlify.app/"
+    "version": 2,
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Access-Control-Allow-Credentials", "value": "true" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" },
+          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+          { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+        ]
       }
-    },
-    {
-      "src": "/movies/:id",
-      "headers": {
-        "methods": [
-          "GET"
-        ],
-        "Location": "https://admirable-caramel-1c2dbd.netlify.app/"
-      }
-    },
-    {
-      "src": "/movies/movie/:id",
-      "methods": [
-        "GET"
-      ],
-      "headers": {
-        "Location": "https://admirable-caramel-1c2dbd.netlify.app/"
-      }
-    }
-  ]
+    ]
 }
