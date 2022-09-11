@@ -50,13 +50,13 @@ module.exports = {
         const admin = await AdminModel.findOne({ activationLink: req.params.uniqueLink })
         const token = await adminService.tokenVerify(req.params.token, process.env.SECRET_JWT_KEY)
         if (!admin) {
-            return res.redirect(process.env.FRONTEND_URL.split(' ')[0])
+            return res.redirect(process.env.FRONTEND_URL)
         }
 
         if (token) {
-            return res.redirect(process.env.FRONTEND_URL.split(' ')[0])
+            return res.redirect(process.env.FRONTEND_URL)
         }
-        res.redirect(process.env.FRONTEND_URL.split(' ')[0] + `/admin/auth/login/to/admin/isactivate/admin/${admin.email}/token/${req.params.token}`)
+        res.redirect(process.env.FRONTEND_URL + `/admin/auth/login/to/admin/isactivate/admin/${admin.email}/token/${req.params.token}`)
     },
     verification: async (req, res) => {
         const { token, email } = req.body

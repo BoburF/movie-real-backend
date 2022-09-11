@@ -7,7 +7,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 //uses
-app.use(cors({credentials: true, origin: process.env.FRONTEND_URL.split(' ')}))
+app.use(cors({credentials: true, origin: process.env.FRONTEND_URL}))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 console.log(process.env.FRONTEND_URL.split(' '));

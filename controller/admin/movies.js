@@ -8,7 +8,7 @@ module.exports = {
             const token = await adminService.tokenVerify(req.headers.admintoken, process.env.SECRET_JWT_KEY)
 
             if (token) {
-                return res.redirect(process.env.FRONTEND_URL.split(' ')[0])
+                return res.redirect(process.env.FRONTEND_URL)
             }
 
             res.json(movies)
@@ -23,7 +23,7 @@ module.exports = {
             const token = await adminService.tokenVerify(req.headers.admintoken, process.env.SECRET_JWT_KEY)
 
             if (token) {
-                return res.redirect(process.env.FRONTEND_URL.split(' ')[0])
+                return res.redirect(process.env.FRONTEND_URL)
             }
             await MoviesModule.create({ name, img, url, genre: genre.replace(/ +(?= )/g,'').split(' '), related, top })
 
@@ -38,7 +38,7 @@ module.exports = {
             const token = await adminService.tokenVerify(req.headers.admintoken, process.env.SECRET_JWT_KEY)
 
             if (token) {
-                return res.redirect(process.env.FRONTEND_URL.split(' ')[0])
+                return res.redirect(process.env.FRONTEND_URL)
             }
 
             await MoviesModule.findOneAndDelete({id: req.params.id})
