@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "https://admirable-caramel-1c2dbd.netlify.app"
         }
     ]
   }

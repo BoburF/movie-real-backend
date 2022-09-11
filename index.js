@@ -10,7 +10,7 @@ require('dotenv').config()
 app.use(cors({credentials: true, origin: process.env.FRONTEND_URL.split(' ')}))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-
+console.log(process.env.FRONTEND_URL.split(' '));
 // base
 require('./helper/dataBase')
 
