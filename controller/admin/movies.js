@@ -41,7 +41,7 @@ module.exports = {
                 return res.redirect(process.env.FRONTEND_URL)
             }
 
-            await MoviesModule.findOneAndDelete({id: req.params.id})
+            await MoviesModule.findByIdAndDelete({id: req.params.id})
 
             res.json("Film o'chirildi")
         } catch (error) {
